@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,27 +9,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Ex1" customModuleProvider="target">
             <connections>
-                <outlet property="button1" destination="ewa-dL-rUH" id="iGg-Ij-xS0"/>
+                <outlet property="emailTextField" destination="YWM-Uc-d9D" id="HFL-5J-5kT"/>
                 <outlet property="loginButton" destination="dJJ-fd-vy1" id="7Jk-HP-oI3"/>
+                <outlet property="passwordTextField" destination="MDk-1h-HKz" id="bdY-Vp-VKn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_signup.png" translatesAutoresizingMaskIntoConstraints="NO" id="R0O-Dn-9y0">
-                    <rect key="frame" x="55" y="0.0" width="914" height="518.5"/>
+                    <rect key="frame" x="55" y="44" width="304" height="315"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQj-0Z-OLe">
-                    <rect key="frame" x="22" y="548.5" width="34.5" height="17"/>
+                    <rect key="frame" x="22" y="389" width="34.5" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWM-Uc-d9D">
-                    <rect key="frame" x="22" y="573.5" width="980" height="50"/>
+                    <rect key="frame" x="22" y="414" width="370" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="mFz-ob-fmc"/>
                     </constraints>
@@ -37,13 +38,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CC-Xf-8W2">
-                    <rect key="frame" x="22" y="645.5" width="63" height="17"/>
+                    <rect key="frame" x="22" y="486" width="63" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-1h-HKz">
-                    <rect key="frame" x="22" y="670.5" width="980" height="50"/>
+                    <rect key="frame" x="22" y="511" width="370" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="BVR-3B-JCS"/>
                     </constraints>
@@ -51,13 +52,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXW-cd-747">
-                    <rect key="frame" x="443.5" y="738.5" width="137" height="21"/>
+                    <rect key="frame" x="138.5" y="579" width="137" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJJ-fd-vy1">
-                    <rect key="frame" x="407" y="826.5" width="210" height="50"/>
+                    <rect key="frame" x="102" y="667" width="210" height="50"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="210" id="7fI-Ao-E2U"/>
@@ -72,20 +73,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-7q-GPD">
-                    <rect key="frame" x="397" y="896.5" width="230" height="33"/>
+                    <rect key="frame" x="92" y="737" width="230" height="33"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Est-ce qu’on se connaît? NON">
                         <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                     </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewa-dL-rUH">
-                    <rect key="frame" x="191" y="784" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="edit:" destination="-1" eventType="touchUpInside" id="LJH-ol-hrJ"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
