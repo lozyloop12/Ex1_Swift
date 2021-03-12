@@ -32,10 +32,10 @@ class LoginViewController: UIViewController {
         }
         //account success: Aaaa12@gmail.com/11111111
         let params = Login(email: email, password: password)
-        Helper.login(params: params
-//use callback ?                     callback:  () -> {
-//            let inviteController = InviteViewController()
-//            navigationController?.pushViewController(inviteController, animated: true)}
+        Helper.login(params: params,
+                     callback: {
+            let inviteController = InviteViewController()
+                        self.navigationController?.pushViewController(inviteController, animated: true)}
         )
 
     }

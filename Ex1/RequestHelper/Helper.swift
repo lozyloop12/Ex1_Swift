@@ -14,8 +14,8 @@ import Alamofire
 class Helper {
     
     static func login(
-        params: Login
-//        callback: () -> {} //how to use callback
+        params: Login,
+        callback: @escaping  () -> Void
     ){
         let request = AF.request(
             BaseURL + "sign-in",
@@ -28,6 +28,7 @@ class Helper {
             }
             do {
                 let res_login = try JSONDecoder().decode(LoginResponse.self, from: res)
+                callback()
                 print(res_login)
             } catch {
                 print("Error Decode")
