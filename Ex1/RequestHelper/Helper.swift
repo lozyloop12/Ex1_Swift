@@ -28,8 +28,8 @@ class Helper {
             }
             do {
                 let res_login = try JSONDecoder().decode(LoginResponse.self, from: res)
-                callback()
-                print(res_login)
+               callback()
+                
             } catch {
                 print("Error Decode")
             }

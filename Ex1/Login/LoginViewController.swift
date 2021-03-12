@@ -12,7 +12,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
-     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    fileprivate var aView: UIView?
     
     @IBOutlet weak var button1: UIButton!
     override func viewDidLoad() {
@@ -22,8 +23,25 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func showSpinner(){
+        aView = UIView(frame: self.view.bounds)
+        aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai=UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        if ((aView?.center) != nil){
+            ai.center = aView?.center as! CGPoint
+        }
+        ai.startAnimating()
+        aView?.addSubview(ai)
+        self.view.addSubview(aView!)
+    }
+    
+     func removeSpinner(){
+        aView?.removeFromSuperview()
+        aView = nil
+    }
+    
     @IBAction func login(_ sender: Any) {
-
+        self.showSpinner()
         guard let email = emailTextField.text else {
             return
         }
@@ -34,6 +52,7 @@ class LoginViewController: UIViewController {
         let params = Login(email: email, password: password)
         Helper.login(params: params,
                      callback: {
+                        self.removeSpinner()
             let inviteController = InviteViewController()
                         self.navigationController?.pushViewController(inviteController, animated: true)}
         )
