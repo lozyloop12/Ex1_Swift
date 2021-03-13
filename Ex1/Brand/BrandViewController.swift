@@ -16,15 +16,24 @@ class BrandViewController: UIViewController{
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var brandView: UICollectionView!
-    var data = [Brand]()
+    var data = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        // Do any additional setup after loading the view.
         setUpUI()
         brandView.delegate = self
         brandView.dataSource = self
+        GetDataArticle()
+    }
+    
+    func GetDataArticle(){
+        Helper.getListArticle { (article) in
+            if((article.data?.data) != nil){
+                self.data = article.data?.data ?? []
+                self.brandView?.reloadData()
+            }
+        }
     }
     
     
@@ -33,21 +42,9 @@ class BrandViewController: UIViewController{
            shopImage.layer.cornerRadius = 30
            addButton.layer.cornerRadius = 5
            addButton.clipsToBounds = true
-        data = Array.init(repeating: Brand(category: "Haut", description:  "Classic black dress", cost: 153.4), count: 10)
             let nib_brand = UINib(nibName: "BrandCollectionViewCell", bundle: .main)
-        brandView.register(nib_brand, forCellWithReuseIdentifier: "BrandCollectionViewCell")
+            brandView.register(nib_brand, forCellWithReuseIdentifier: "BrandCollectionViewCell")
        }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -60,6 +57,8 @@ extension BrandViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandCollectionViewCell", for: indexPath) as? BrandCollectionViewCell else {
             return UICollectionViewCell()
         }
+        let article = data[indexPath.row]
+        cell.article = article
         return cell
     }
     

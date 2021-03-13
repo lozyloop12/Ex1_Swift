@@ -90,6 +90,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="146" height="255"/>
+            <connections>
+                <outlet property="articleImage" destination="8x6-C9-hMk" id="gFg-J1-JCP"/>
+                <outlet property="categoryText" destination="fsA-Yn-qgY" id="hIv-Pl-Tb2"/>
+                <outlet property="priceText" destination="giV-Ii-6yQ" id="iyx-4v-d6R"/>
+                <outlet property="subCategoryText" destination="lKP-MH-UPJ" id="I3m-Ko-7Wk"/>
+            </connections>
             <point key="canvasLocation" x="-294.20289855072468" y="-625.78125"/>
         </collectionViewCell>
     </objects>

@@ -53,8 +53,8 @@ class LoginViewController: UIViewController {
         Helper.login(params: params,
                      callback: {
                         self.removeSpinner()
-            let inviteController = InviteViewController()
-                        self.navigationController?.pushViewController(inviteController, animated: true)}
+                        let brandController = BrandViewController()
+                        self.navigationController?.pushViewController(brandController, animated: true)}
         )
 
     }
