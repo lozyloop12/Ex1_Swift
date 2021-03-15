@@ -16,7 +16,8 @@ class Helper {
     
     static func login(
         params: Login,
-        callback: @escaping  () -> Void
+        callback: @escaping  () -> Void,
+        callbackFail: @escaping  () -> Void
     ){
         let request = AF.request(
             BaseURL + "sign-in",
@@ -29,14 +30,21 @@ class Helper {
             }
             do {
                 let res_login = try JSONDecoder().decode(LoginResponse.self, from: res)
-               callback()
-                
+                token = "Bearer " + (res_login.data?.accessToken ?? "") as! String
+                res_login.status == 200 ? callback() : callbackFail()
             } catch {
                 print("Error Decode")
             }
            
    
         }
+    }
+    
+    func doSomething(refreshControl: UIRefreshControl) {
+        print("Hello World!")
+
+        // somewhere in your code you might need to call:
+        refreshControl.endRefreshing()
     }
     
     static func getListArticle(callback: @escaping (_ data: BrandResponse) -> Void) {

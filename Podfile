@@ -6,4 +6,5 @@ target 'Ex1' do
 
   # Pods for Ex1
 pod 'Alamofire', '~> 5.2'
+pod 'Kingfisher', '~> 5.15.8'
 end

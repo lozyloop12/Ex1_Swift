@@ -17,6 +17,7 @@ class BrandViewController: UIViewController{
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var brandView: UICollectionView!
     var data = [Article]()
+    var refresher:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,30 @@ class BrandViewController: UIViewController{
         brandView.delegate = self
         brandView.dataSource = self
         GetDataArticle()
+        //
+       self.refresher = UIRefreshControl()
+        self.brandView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        self.brandView!.addSubview(refresher)
     }
+    
+    @objc func loadData() {
+    self.brandView!.refreshControl?.beginRefreshing()
+        //refresh
+        Helper.getListArticle { (article) in
+                  if((article.data?.data) != nil){
+                      self.data = article.data?.data ?? []
+                      self.brandView?.reloadData()
+                  }
+              }
+       stopRefresher()
+     }
+
+     func stopRefresher() {
+        self.brandView!.refreshControl?.endRefreshing()
+        refresher.endRefreshing()
+     }
     
     func GetDataArticle(){
         Helper.getListArticle { (article) in
@@ -36,6 +60,7 @@ class BrandViewController: UIViewController{
         }
     }
     
+  
     
     private func setUpUI(){
            shopImage.contentMode = .scaleAspectFill

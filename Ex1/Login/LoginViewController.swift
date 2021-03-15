@@ -54,7 +54,17 @@ class LoginViewController: UIViewController {
                      callback: {
                         self.removeSpinner()
                         let brandController = BrandViewController()
-                        self.navigationController?.pushViewController(brandController, animated: true)}
+                        self.navigationController?.pushViewController(brandController, animated: true)}, callbackFail: {
+                            self.removeSpinner()
+                            // create the alert
+                                   let alert = UIAlertController(title: "Error", message: "Wrong account or password", preferredStyle: UIAlertController.Style.alert)
+
+                                   // add an action (button)
+                                   alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                                   // show the alert
+                                   self.present(alert, animated: true, completion: nil)
+        }
         )
 
     }

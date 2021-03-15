@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BrandCollectionViewCell: UICollectionViewCell {
     
@@ -28,7 +29,14 @@ class BrandCollectionViewCell: UICollectionViewCell {
     }
     
     private func renderData(with article: Article) {
-        articleImage.image = UIImage(url: URL(string: article.images[0]))
+//        articleImage.image = UIImage(url: URL(string: article.images[0]))
+        let placeholderImage = UIImage(named: "placeHolder")
+        if URL(string: article.images[0]) != nil {
+            let resource = ImageResource(downloadURL: URL(string: article.images[0])!, cacheKey: article.images[0])
+            
+            articleImage.kf.setImage(with: resource, placeholder: placeholderImage)
+            
+        }
         categoryText.text = article.category ?? ""
         subCategoryText.text = article.subCategory ?? ""
         priceText.text =  String(article.price ?? 1.0)
